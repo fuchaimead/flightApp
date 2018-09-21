@@ -1,9 +1,9 @@
+import FlightTotals from "./totals";
 import React, { Component } from "react";
 import { Button, Container, Grid, Header } from "semantic-ui-react";
 import "./App.css";
 
 class Homepage extends Component {
-
   handleAddFlight() {
     this.props.history.push("/new");
   }
@@ -15,7 +15,7 @@ class Homepage extends Component {
           <Grid >
             <Grid.Row>
               <Grid.Column>
-                <Header as="h1" textAlign="center">Flight App</Header>
+                <Header as="h1" textAlign="center">Your Flights</Header>
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -26,6 +26,7 @@ class Homepage extends Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
+          <FlightTotals/>
         </Container>
       </div>
     );
