@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  date: MyString
+  model: MyString
+  identification: MyString
+  arrival: MyString
+  departure: MyString
+  airplane_sel: 
+  airplane_mel: MyString
+  dual_received: 
+  pic_hours: 
+  day_hours: 
+  night_hours: 
+  cross_country_hours: 
+  actual_instrument_hours: 
+  sumulated_instrument: 
+  ground_trainer: 
+  num_intrument_approaches: 
+  num_landings_day: 
+  num_landings_night: 
+  totat_duration: 
+  remarks: MyText
+
+two:
+  name: MyString
+  date: MyString
+  model: MyString
+  identification: MyString
+  arrival: MyString
+  departure: MyString
+  airplane_sel: 
+  airplane_mel: MyString
+  dual_received: 
+  pic_hours: 
+  day_hours: 
+  night_hours: 
+  cross_country_hours: 
+  actual_instrument_hours: 
+  sumulated_instrument: 
+  ground_trainer: 
+  num_intrument_approaches: 
+  num_landings_day: 
+  num_landings_night: 
+  totat_duration: 
+  remarks: MyText
