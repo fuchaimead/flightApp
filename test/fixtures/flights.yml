@@ -7,20 +7,20 @@ one:
   identification: MyString
   arrival: MyString
   departure: MyString
-  airplane_sel: 
-  airplane_mel: MyString
-  dual_received: 
-  pic_hours: 
-  day_hours: 
+  ariplane_sel: 1
+  airplane_mel: 1
+  dual_received: 1
+  pic_hours: 1
+  day_hours: 1
   night_hours: 
   cross_country_hours: 
-  actual_instrument_hours: 
-  sumulated_instrument: 
+  actual_instrument_hours: 1
+  simulated_instrument: 1
   ground_trainer: 
-  num_intrument_approaches: 
-  num_landings_day: 
-  num_landings_night: 
-  totat_duration: 
+  num_instrument_approaches: 1
+  num_landings_day: 1
+  num_landings_night: 1
+  total_duration: 1
   remarks: MyText
 
 two:
@@ -30,18 +30,18 @@ two:
   identification: MyString
   arrival: MyString
   departure: MyString
-  airplane_sel: 
-  airplane_mel: MyString
-  dual_received: 
-  pic_hours: 
-  day_hours: 
+  ariplane_sel: 1
+  airplane_mel: 1
+  dual_received: 1
+  pic_hours: 1
+  day_hours: 1
   night_hours: 
   cross_country_hours: 
-  actual_instrument_hours: 
-  sumulated_instrument: 
+  actual_instrument_hours: 1
+  simulated_instrument: 1
   ground_trainer: 
-  num_intrument_approaches: 
-  num_landings_day: 
-  num_landings_night: 
-  totat_duration: 
+  num_instrument_approaches: 1
+  num_landings_day: 1
+  num_landings_night: 1
+  total_duration: 1
   remarks: MyText
