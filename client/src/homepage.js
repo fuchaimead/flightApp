@@ -2,11 +2,11 @@ import axios from "axios";
 import FlightTotals from "./totals";
 import React from "react";
 import Style from "./homepage.style";
-import { Link } from "react-router-dom";
-import { Button, Container, Divider, Grid, Header } from "semantic-ui-react";
+import ViewFlight from "./viewFlight";
+import { Button, Container, Divider, Grid, Header, Icon, Modal } from "semantic-ui-react";
 
 class Homepage extends React.Component {
-  state = { flights: null }
+  state = { flights: null, viewFlight: false, flightId: false}
 
   componentDidMount() {
     axios.get("/api/flights") 
@@ -22,6 +22,10 @@ class Homepage extends React.Component {
     this.props.history.push("/new");
   }
 
+  handleEditFlight(id) {
+    this.props.history.push(`/${id}/edit`)
+  }
+
   renderFlights() {
     return(
       this.state.flights.map(flight => {
@@ -30,9 +34,12 @@ class Homepage extends React.Component {
             <Grid key={flight.id} columns={5}>
               <Grid.Row>
                 <Grid.Column>
-                  <h4>
-                    <Link to={`/${flight.id}/edit`}>Date {flight.date}</Link>
-                  </h4>
+                  <span>
+                    <Icon name="edit" link onClick={() => this.handleEditFlight(flight.id)}/>
+                    <h4>
+                      <ViewFlight flight={flight}/>
+                    </h4>
+                  </span>
                 </Grid.Column>
                 <Grid.Column>
                   <strong>
@@ -68,7 +75,6 @@ class Homepage extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     if(this.state.flights === null) { return(null); }
 
     return (

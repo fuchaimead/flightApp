@@ -28,18 +28,20 @@ class FlightForm extends React.Component {
               solo_flight: undefined,
               total_duration: undefined,
             },
-            editing: false
+            editing: false,
           }
 
   componentDidMount() {
-    axios.get(`/api/flights/${this.props.match.params.id}`) 
-      .then(res => {
-        console.log("results", res)
-        this.setState({ flight: res.data })
+    if(this.props.match.params.id !== undefined) {
+      axios.get(`/api/flights/${this.props.match.params.id}`) 
+        .then(res => {
+          console.log("results", res)
+          this.setState({ flight: res.data, editing: true });
+        })
+        .catch( err => {
+          console.log(err);
       })
-      .catch( err => {
-        console.log(err);
-    })
+    }
   }
 
 
