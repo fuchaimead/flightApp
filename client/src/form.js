@@ -5,28 +5,27 @@ import axios from "axios";
 
 class FlightForm extends React.Component {
   state = { flight: 
-            { actual_instrument_hours: undefined, 
-              airplane_mel: undefined, 
-              airplane_sel: undefined, 
+            { actual_instrument_hours: "", 
+              airplane_mel: "", 
+              airplane_sel: "", 
               arrival: "", 
               comments: "", 
-              cross_country_hours: undefined, 
-              date: undefined, 
-              day_hours: undefined, 
+              cross_country_hours: "", 
+              date: "", 
+              day_hours: "", 
               departure: "", 
-              dual_received: undefined, 
-              ground_trainer: undefined, 
+              dual_received: "", 
+              ground_trainer: "", 
               identification: "", 
-              num_instrument_approaches: undefined, 
-              night_hours: undefined, 
-              num_landings_day: undefined, 
-              num_landings_night: undefined, 
               maneuvers: "",
               model: "", 
-              pic_hours: undefined, 
-              simulated_instrument: undefined,
-              solo_flight: undefined,
-              total_duration: undefined,
+              night_hours: "", 
+              num_instrument_approaches: "", 
+              num_landings_day: "", 
+              num_landings_night: "", 
+              pic_hours: "", 
+              simulated_instrument: "",
+              total_duration: "",
             },
             editing: false,
           }
@@ -58,14 +57,23 @@ class FlightForm extends React.Component {
     e.preventDefault()
 
     const data = this.state.flight
-    // data.total_duration = parseInt(data.total_duration);
-    axios.post("/api/flights", data)
+    if(data.id) {
+      axios.put(`/api/flights/${data.id}`, data)
       .then(res => {
         this.props.history.push("/")
       })
       .catch( err => {
         console.log(err);
-    })
+    });
+    } else {
+      axios.post("/api/flights", data)
+        .then(res => {
+          this.props.history.push("/")
+        })
+        .catch( err => {
+          console.log(err);
+      });
+    }
   }
 
   renderHeader() {
@@ -75,7 +83,6 @@ class FlightForm extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     const { actual_instrument_hours, arrival, cross_country_hours, comments, date, day_hours, num_landings_day, departure, dual_received, ground_trainer, identification, 
       num_instrument_approaches, night_hours, num_landings_night, airplane_mel, model, pic_hours, maneuvers, airplane_sel, simulated_instrument, solo_flight, total_duration } = this.state.flight; 
 
