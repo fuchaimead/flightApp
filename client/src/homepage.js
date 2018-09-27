@@ -3,7 +3,7 @@ import FlightTotals from "./totals";
 import React from "react";
 import Style from "./homepage.style";
 import ViewFlight from "./viewFlight";
-import { Button, Container, Divider, Grid, Header, Icon, Modal } from "semantic-ui-react";
+import { Button, Container, Divider, Grid, Header, Icon } from "semantic-ui-react";
 
 class Homepage extends React.Component {
   state = { flights: null, viewFlight: false, flightId: false}
@@ -73,7 +73,6 @@ class Homepage extends React.Component {
   }
 
   render() {
-    console.log(this.state.flights)
     if(this.state.flights === null) { return(null); }
 
     return (

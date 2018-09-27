@@ -1,5 +1,6 @@
 import FlightDetails from "./flightDetails";
 import React from "react";
+import Moment from "moment";
 import { Modal } from "semantic-ui-react";
 
 class ViewFlight extends React.Component {
@@ -9,18 +10,18 @@ class ViewFlight extends React.Component {
   }
   
   viewFlight() {
-    const {date} = this.props.flight    
     return(
-      <FlightDetails />
+      <FlightDetails {...this.props}/>
     );
   }
 
   render () {
     if(this.props.flight === undefined) { return (null); }
+    const date = Moment(this.props.flight.date).format("MM/DD/YYYY")
 
     return (
       <span>
-        <Modal trigger={<span>{this.props.flight.date}</span>}>
+        <Modal trigger={<span>{date}</span>}>
           <Modal.Content>
             {this.viewFlight()}
           </Modal.Content>

@@ -1,6 +1,6 @@
 import FlightDetails from "./flightDetails";
 import React from "react";
-import { Grid, Header, Label, Segment, Table } from "semantic-ui-react";
+import { Header, Label, Segment } from "semantic-ui-react";
 
 class FlightTotals extends React.Component {
   state = { showDetails: false }

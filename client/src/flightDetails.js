@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Header, Label, Segment, Table } from "semantic-ui-react";
+import { Grid, Header, Table } from "semantic-ui-react";
 
 class FlightDetails extends React.Component {
   render() {

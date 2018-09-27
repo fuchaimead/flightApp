@@ -1,7 +1,7 @@
+import Axios from "axios";
 import React from "react";
-import { Button, Container, Divider, Grid, Header, Form } from "semantic-ui-react";
 import Style from "./form.style";
-import axios from "axios";
+import { Button, Container, Divider, Grid, Header, Form } from "semantic-ui-react";
 
 class FlightForm extends React.Component {
   state = { flight: 
@@ -32,7 +32,7 @@ class FlightForm extends React.Component {
 
   componentDidMount() {
     if(this.props.match.params.id !== undefined) {
-      axios.get(`/api/flights/${this.props.match.params.id}`) 
+      Axios.get(`/api/flights/${this.props.match.params.id}`) 
         .then(res => {
           this.setState({ flight: res.data, editing: true });
         })
@@ -41,7 +41,6 @@ class FlightForm extends React.Component {
       })
     }
   }
-
 
   handleCancel() {
     this.props.history.push("/");
@@ -57,7 +56,7 @@ class FlightForm extends React.Component {
 
     const data = this.state.flight
     if(data.id) {
-      axios.put(`/api/flights/${data.id}`, data)
+      Axios.put(`/api/flights/${data.id}`, data)
       .then(res => {
         this.props.history.push("/")
       })
@@ -65,7 +64,7 @@ class FlightForm extends React.Component {
         console.log(err);
     });
     } else {
-      axios.post("/api/flights", data)
+      Axios.post("/api/flights", data)
         .then(res => {
           this.props.history.push("/")
         })
