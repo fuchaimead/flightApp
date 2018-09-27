@@ -37,9 +37,8 @@ class Api::FlightsController < ApplicationController
   end
 
   def flight_params 
-    params.require(:flight).permit(:date, :model, :identification, :arrival, 
-    :departure, :airplane_sel, :airplane_mel, :dual_received, :pic_hours, :day_hours, :night_hours, :cross_country_hours, 
-    :actual_instrument_hours, :simulated_instrument, :ground_trainer, :num_instrument_approaches, :num_landings_day, 
-    :num_landings_night, :total_duration, :comments, :maneuvers)
+    params.require(:flight).permit(:actual_instrument_hours, :airplane_mel, :airplane_sel, :arrival, :comments, :cross_country_hours, 
+    :date, :day_hours, :departure, :dual_received, :ground_trainer, :identification, :maneuvers, :model, :night_hours, :num_instrument_approaches, 
+    :num_landings_day, :num_landings_night, :pic_hours, :simulated_instrument, :solo_hours, :total_duration)
   end 
 end

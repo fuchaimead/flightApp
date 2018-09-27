@@ -34,7 +34,6 @@ class FlightForm extends React.Component {
     if(this.props.match.params.id !== undefined) {
       axios.get(`/api/flights/${this.props.match.params.id}`) 
         .then(res => {
-          console.log("results", res)
           this.setState({ flight: res.data, editing: true });
         })
         .catch( err => {
@@ -83,8 +82,8 @@ class FlightForm extends React.Component {
   }
 
   render() {
-    const { actual_instrument_hours, arrival, cross_country_hours, comments, date, day_hours, num_landings_day, departure, dual_received, ground_trainer, identification, 
-      num_instrument_approaches, night_hours, num_landings_night, airplane_mel, model, pic_hours, maneuvers, airplane_sel, simulated_instrument, solo_flight, total_duration } = this.state.flight; 
+    const { actual_instrument_hours, airplane_mel, airplane_sel, arrival, cross_country_hours, comments, date, day_hours, departure, dual_received, ground_trainer, identification, 
+    maneuvers, model, night_hours, num_instrument_approaches, num_landings_day, num_landings_night, pic_hours, simulated_instrument, solo_flight, total_duration } = this.state.flight; 
 
     return(
       <Style>
