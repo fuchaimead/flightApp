@@ -36,9 +36,7 @@ class Homepage extends React.Component {
                 <Grid.Column>
                   <span>
                     <Icon name="edit" link onClick={() => this.handleEditFlight(flight.id)}/>
-                    <h4>
-                      <ViewFlight flight={flight}/>
-                    </h4>
+                    <ViewFlight flight={flight}/>
                   </span>
                 </Grid.Column>
                 <Grid.Column>
@@ -63,7 +61,7 @@ class Homepage extends React.Component {
                 <strong>
                   <p>Total Hours</p>
                 </strong>
-                <i>{flight.total}</i>
+                <i>{flight.total_duration}</i>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -75,6 +73,7 @@ class Homepage extends React.Component {
   }
 
   render() {
+    console.log(this.state.flights)
     if(this.state.flights === null) { return(null); }
 
     return (

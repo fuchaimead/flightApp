@@ -1,36 +1,31 @@
+import FlightDetails from "./flightDetails";
 import React from "react";
-import { Segment } from "semantic-ui-react";
+import { Modal } from "semantic-ui-react";
 
 class ViewFlight extends React.Component {
-  state = { isVisible: false }
-  
+
   toggleVisible () {
     this.setState({ isVisible: !this.state.isVisible });
   }
   
   viewFlight() {
-    const {date} = this.props.flight;
-
-    if(!this.state.isVisible) { return (null); }
-    
+    const {date} = this.props.flight    
     return(
-      <Segment>
-        testing
-      </Segment>
+      <FlightDetails />
     );
   }
 
   render () {
-    console.log(this.state)
     if(this.props.flight === undefined) { return (null); }
 
     return (
-      <div>
-        <a onClick={() => this.toggleVisible()}>
-          {this.props.flight.date}
-        </a>
-        {this.viewFlight()}
-      </div>
+      <span>
+        <Modal trigger={<span>{this.props.flight.date}</span>}>
+          <Modal.Content>
+            {this.viewFlight()}
+          </Modal.Content>
+        </Modal>
+      </span>
     );
   }
 }
