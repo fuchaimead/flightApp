@@ -3,27 +3,27 @@ import FlightTotals from "./totals";
 import React from "react";
 import Style from "./homepage.style";
 import ViewFlight from "./viewFlight";
-import { Button, Container, Divider, Grid, Header, Icon } from "semantic-ui-react";
+import { Button, Container, Divider, Grid, Header } from "semantic-ui-react";
 
 class Homepage extends React.Component {
-  state = { flights: null, viewFlight: false, flightId: false}
+  state = { flights: [], viewFlight: false }
 
   componentDidMount() {
     axios.get("/api/flights") 
       .then(res => {
-        this.setState({ flights: res.data })
+        this.setState({ flights: res.data });
       })
       .catch( err => {
         console.log(err);
-    })
+    });
+  }
+
+  handleDeleteFlight(id) {
+    this.setState({ flights: this.state.flights.filter((flight) => flight.id !== id ) });
   }
 
   handleAddFlight() {
     this.props.history.push("/new");
-  }
-
-  handleEditFlight(id) {
-    this.props.history.push(`/${id}/edit`)
   }
 
   renderFlights() {
@@ -35,8 +35,7 @@ class Homepage extends React.Component {
               <Grid.Row>
                 <Grid.Column>
                   <span>
-                    <Icon name="edit" link onClick={() => this.handleEditFlight(flight.id)}/>
-                    <ViewFlight flight={flight}/>
+                    <ViewFlight flight={flight} {...this.props} deleteFlight={(id) => this.handleDeleteFlight(id)}/>
                   </span>
                 </Grid.Column>
                 <Grid.Column>
@@ -73,6 +72,7 @@ class Homepage extends React.Component {
   }
 
   render() {
+    console.log("here in homepage")
     if(this.state.flights === null) { return(null); }
 
     return (
