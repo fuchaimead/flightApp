@@ -2,6 +2,19 @@ import React from "react";
 import { Grid, Header, Table } from "semantic-ui-react";
 
 class FlightDetails extends React.Component {
+  calculateHours(key) {
+    if(this.props.flights) {
+      let hours = this.props.flights.map(flight => flight[key]).reduce((prev, next) => prev + next);
+      return(hours)
+    } else {
+      let hours = this.props.flight[key]
+      if(hours === null) {
+        return(0);
+      }
+      return(hours)
+    }
+  }
+
   render() {
     return(
       <Grid columns={4}>
@@ -22,7 +35,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>3</Table.Cell>
+                <Table.Cell>{this.calculateHours("airplane_sel")}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>
@@ -32,7 +45,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>3</Table.Cell>
+                <Table.Cell>{this.calculateHours("airplane_mel")}</Table.Cell>
               </Table.Row>
             </Table.Body>
           </Table>
@@ -54,7 +67,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>2.5</Table.Cell>
+                <Table.Cell>{this.calculateHours("dual_received")}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>
@@ -64,7 +77,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>3</Table.Cell>
+                <Table.Cell>{this.calculateHours("pic_hours")}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>
@@ -74,7 +87,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>3</Table.Cell>
+                <Table.Cell>{this.calculateHours("ground_trainer")}</Table.Cell>
               </Table.Row>
             </Table.Body>
           </Table>
@@ -96,7 +109,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>2.5</Table.Cell>
+                <Table.Cell>{this.calculateHours("day_hours")}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>
@@ -106,7 +119,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>3</Table.Cell>
+                <Table.Cell>{this.calculateHours("night_hours")}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>
@@ -116,7 +129,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>3</Table.Cell>
+                <Table.Cell>{this.calculateHours("cross_country_hours")}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>
@@ -126,7 +139,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>3</Table.Cell>
+                <Table.Cell>{this.calculateHours("actual_instrument_hours")}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>
@@ -136,7 +149,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>3</Table.Cell>
+                <Table.Cell>{this.calculateHours("simulated_instrument")}</Table.Cell>
               </Table.Row>
             </Table.Body>
           </Table>
@@ -158,7 +171,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>5</Table.Cell>
+                <Table.Cell>{this.calculateHours("num_instrument_approaches")}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>
@@ -168,7 +181,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>3</Table.Cell>
+                <Table.Cell>{this.calculateHours("num_landings_day")}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>
@@ -178,7 +191,7 @@ class FlightDetails extends React.Component {
                     </Header.Content>
                   </Header>
                 </Table.Cell>
-                <Table.Cell>3</Table.Cell>
+                <Table.Cell>{this.calculateHours("num_landings_night")}</Table.Cell>
               </Table.Row>
             </Table.Body>
           </Table>

@@ -13,7 +13,7 @@ class FlightForm extends React.Component {
               cross_country_hours: "", 
               date: "", 
               day_hours: "", 
-              departure: "", 
+              departure: "",
               dual_received: "", 
               ground_trainer: "", 
               identification: "", 

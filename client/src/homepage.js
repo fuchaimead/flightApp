@@ -72,7 +72,6 @@ class Homepage extends React.Component {
   }
 
   render() {
-    console.log("here in homepage")
     if(this.state.flights === null) { return(null); }
 
     return (
@@ -93,7 +92,7 @@ class Homepage extends React.Component {
             </Grid.Row>
           </Grid>
           {this.renderFlights()}
-          <FlightTotals/>
+          <FlightTotals flights={this.state.flights}/>
         </Container>
       </Style>
     );
