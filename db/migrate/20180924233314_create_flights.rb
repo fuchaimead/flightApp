@@ -19,6 +19,7 @@ class CreateFlights < ActiveRecord::Migration[5.2]
       t.integer :num_instrument_approaches
       t.integer :num_landings_day
       t.integer :num_landings_night
+      t.integer :solo_hours
       t.integer :total_duration
       t.text :maneuvers
       t.text :comments

@@ -89,6 +89,16 @@ class FlightDetails extends React.Component {
                 </Table.Cell>
                 <Table.Cell>{this.calculateHours("ground_trainer")}</Table.Cell>
               </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Header as='h5'>
+                    <Header.Content>
+                      Solo Flight
+                    </Header.Content>
+                  </Header>
+                </Table.Cell>
+                <Table.Cell>{this.calculateHours("solo_hours")}</Table.Cell>
+              </Table.Row>
             </Table.Body>
           </Table>
         </Grid.Column>

@@ -25,6 +25,7 @@ class FlightForm extends React.Component {
               num_landings_night: "", 
               pic_hours: "", 
               simulated_instrument: "",
+              solo_hours: "",
               total_duration: "",
             },
             editing: false,
@@ -82,7 +83,7 @@ class FlightForm extends React.Component {
 
   render() {
     const { actual_instrument_hours, airplane_mel, airplane_sel, arrival, cross_country_hours, comments, date, day_hours, departure, dual_received, ground_trainer, identification, 
-    maneuvers, model, night_hours, num_instrument_approaches, num_landings_day, num_landings_night, pic_hours, simulated_instrument, solo_flight, total_duration } = this.state.flight; 
+    maneuvers, model, night_hours, num_instrument_approaches, num_landings_day, num_landings_night, pic_hours, simulated_instrument, solo_hours, total_duration } = this.state.flight; 
 
     return(
       <Style>
@@ -161,7 +162,7 @@ class FlightForm extends React.Component {
                   <Form.Input label="No. Landings Night" placeholder="No. Landings Night" width={4} id="num_landings_night" value={num_landings_night} onChange={this.handleChange} type="number" min="0"/>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Input label="Solo Flight" placeholder="Solo Flight" width={4} id="solo_flight" value={solo_flight} onChange={this.handleChange} type="number" min="0"/>
+                  <Form.Input label="Solo Flight" placeholder="Solo Flight" width={4} id="solo_hours" value={solo_hours} onChange={this.handleChange} type="number" min="0"/>
                   <Form.Input label="Total Duration" placeholder="Total Duration" width={4} id="total_duration" value={total_duration} onChange={this.handleChange} type="number" min="0"/>
                 </Form.Group>
               </Grid.Column>
