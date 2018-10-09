@@ -3,7 +3,7 @@ import FlightDetails from "./flightDetails";
 import React from "react";
 import Moment from "moment";
 import Style from "./viewFlight.style";
-import { Button, Modal } from "semantic-ui-react";
+import { Button, Grid, Header, Modal } from "semantic-ui-react";
 
 class ViewFlight extends React.Component {
   state = { modalOpen: false }
@@ -44,21 +44,31 @@ class ViewFlight extends React.Component {
   }
 
   render () {
-    const { date, id } = this.props.flight;
+    const { comments, date, id, identification, model, total_duration } = this.props.flight;
     const formattedDate = Moment(date).format("MM/DD/YYYY");
-
+    console.log(this.props.flight)
     if(this.props.flight === undefined) { return (null); }
 
     return(
-      <Style>
-        <Modal closeIcon trigger={<h4><a>{formattedDate}</a></h4>}>
+      <Modal closeIcon trigger={<h4><a>{formattedDate}</a></h4>}>
           <Modal.Content>
-            {this.viewFlight()}
-            <Button onClick={() => this.handleEdit(id)}>Edit</Button>
-            <Button onClick={() => this.handleDelete(id)}>Delete</Button>
+            <Style>
+              <Header as="h3">Date: {formattedDate}</Header>
+              <p>Description {comments}</p>
+              <p>Aircraft Make & Model {model}</p>
+              <p>Aircraft Identification {identification}</p>
+              <p>Total Hours {total_duration}</p>
+              {this.viewFlight()}
+              <Grid columns={2}>
+                <Grid.Column></Grid.Column>
+                <Grid.Column className="align-left">
+                  <Button onClick={() => this.handleEdit(id)}>Edit</Button>
+                  <Button onClick={() => this.handleDelete(id)}>Delete</Button>
+                </Grid.Column>
+              </Grid>
+            </Style>
           </Modal.Content>
         </Modal>
-      </Style>
     );
   }
 }

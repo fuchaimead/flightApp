@@ -77,10 +77,11 @@ class Homepage extends React.Component {
     return (
       <Style>
         <Container>
+          <Header as="h1" textAlign="center">(User name) Flight Log</Header>
+          <FlightTotals flights={this.state.flights}/>
           <Grid>
             <Grid.Row>
               <Grid.Column>
-                <Header as="h1" textAlign="center">Your Flights</Header>
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -92,7 +93,6 @@ class Homepage extends React.Component {
             </Grid.Row>
           </Grid>
           {this.renderFlights()}
-          <FlightTotals flights={this.state.flights}/>
         </Container>
       </Style>
     );

@@ -5,7 +5,7 @@ class FlightDetails extends React.Component {
   calculateHours(key) {
     if(this.props.flights) {
       let hours = this.props.flights.map(flight => flight[key]).reduce((prev, next) => prev + next);
-      return(hours)
+      return(hours.toFixed(1))
     } else {
       let hours = this.props.flight[key]
       if(hours === null) {
