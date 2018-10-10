@@ -1,6 +1,7 @@
 import Axios from "axios";
 import React from "react";
 import Style from "./form.style";
+import { connect } from "react-redux";
 import { Button, Container, Divider, Grid, Header, Form } from "semantic-ui-react";
 
 class FlightForm extends React.Component {
@@ -36,9 +37,13 @@ class FlightForm extends React.Component {
     if(this.props.match.params.id !== undefined) {
       Axios.get(`/api/flights/${this.props.match.params.id}`) 
         .then(res => {
+          const {headers} = res;
+          this.props.dispatch({ type: 'SET_HEADERS', headers })
           this.setState({ flight: res.data, editing: true });
         })
         .catch( err => {
+          const {headers} = err;
+          this.props.dispatch({ type: 'SET_HEADERS', headers })
           console.log(err);
       })
     }
@@ -68,9 +73,13 @@ class FlightForm extends React.Component {
     } else {
       Axios.post("/api/flights", data)
         .then(res => {
+          const {headers} = res;
+          this.props.dispatch({ type: 'SET_HEADERS', headers })
           this.props.history.push("/")
         })
         .catch( err => {
+          const {headers} = err;
+          this.props.dispatch({ type: 'SET_HEADERS', headers })
           console.log(err);
       });
     }
@@ -244,4 +253,4 @@ class FlightForm extends React.Component {
   }
 }
 
-export default FlightForm;
+export default connect()(FlightForm);

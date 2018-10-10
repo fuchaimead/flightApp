@@ -3,6 +3,7 @@ import FlightTotals from "./totals";
 import React from "react";
 import Style from "./homepage.style";
 import ViewFlight from "./viewFlight";
+import { connect } from "react-redux";
 import { Button, Container, Divider, Grid, Header } from "semantic-ui-react";
 
 class Homepage extends React.Component {
@@ -15,6 +16,8 @@ class Homepage extends React.Component {
       })
       .catch( err => {
         console.log(err);
+        const {headers} = err;
+        this.props.dispatch({ type: 'SET_HEADERS', headers });
     });
   }
 
@@ -99,4 +102,4 @@ class Homepage extends React.Component {
   }
 }
 
-export default Homepage;
+export default connect()(Homepage);
