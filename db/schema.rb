@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_09_030638) do
+ActiveRecord::Schema.define(version: 2019_01_17_195229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2018_10_09_030638) do
   create_table "flights", force: :cascade do |t|
     t.string "date"
     t.string "model"
-    t.string "identification"
+    t.string "indentification"
     t.string "arrival"
     t.string "departure"
     t.float "airplane_sel"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2018_10_09_030638) do
     t.float "day_hours"
     t.float "night_hours"
     t.float "cross_country_hours"
-    t.float "actual_instrument_hours"
+    t.float "actual_instrument"
     t.float "simulated_instrument"
     t.float "ground_trainer"
     t.float "num_instrument_approaches"
@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 2018_10_09_030638) do
     t.float "total_duration"
     t.text "maneuvers"
     t.text "comments"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_flights_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,10 +68,13 @@ ActiveRecord::Schema.define(version: 2018_10_09_030638) do
     t.json "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "flights", "users"
 end

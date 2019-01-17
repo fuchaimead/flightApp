@@ -3,7 +3,7 @@ class Api::FlightsController < ApplicationController
   before_action :set_flight, only: [:destroy, :show, :update]
 
   def index
-    render json: Flight.all
+    render json: current_user.flights
   end
 
   def show
@@ -40,6 +40,6 @@ class Api::FlightsController < ApplicationController
   def flight_params 
     params.require(:flight).permit(:actual_instrument_hours, :airplane_mel, :airplane_sel, :arrival, :comments, :cross_country_hours, 
     :date, :day_hours, :departure, :dual_received, :ground_trainer, :identification, :maneuvers, :model, :night_hours, :num_instrument_approaches, 
-    :num_landings_day, :num_landings_night, :pic_hours, :simulated_instrument, :solo_hours, :total_duration)
+    :num_landings_day, :num_landings_night, :pic_hours, :simulated_instrument, :solo_hours, :total_duration, :user_id)
   end 
 end

@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar {...this.props}/>
+        <NavBar/>
         <FetchUser>
           <Switch>
             <ProtectedRoute exact path="/" component={Homepage} />

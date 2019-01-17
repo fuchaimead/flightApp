@@ -1,47 +1,49 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
   date: MyString
   model: MyString
-  identification: MyString
+  indentification: MyString
   arrival: MyString
   departure: MyString
-  ariplane_sel: 1
-  airplane_mel: 1
-  dual_received: 1
-  pic_hours: 1
-  day_hours: 1
-  night_hours: 
-  cross_country_hours: 
-  actual_instrument_hours: 1
-  simulated_instrument: 1
-  ground_trainer: 
-  num_instrument_approaches: 1
-  num_landings_day: 1
-  num_landings_night: 1
-  total_duration: 1
-  remarks: MyText
+  airplane_sel: 1.5
+  airplane_mel: 1.5
+  dual_received: 1.5
+  pic_hours: 1.5
+  day_hours: 1.5
+  night_hours: 1.5
+  cross_country_hours: 1.5
+  actual_instrument: 1.5
+  simulated_instrument: 1.5
+  ground_trainer: 1.5
+  num_instrument_approaches: 1.5
+  num_landings_day: 1.5
+  num_landings_night: 1.5
+  solo_hours: 1.5
+  total_duration: 1.5
+  maneuvers: MyText
+  comments: MyText
 
 two:
-  name: MyString
   date: MyString
   model: MyString
-  identification: MyString
+  indentification: MyString
   arrival: MyString
   departure: MyString
-  ariplane_sel: 1
-  airplane_mel: 1
-  dual_received: 1
-  pic_hours: 1
-  day_hours: 1
-  night_hours: 
-  cross_country_hours: 
-  actual_instrument_hours: 1
-  simulated_instrument: 1
-  ground_trainer: 
-  num_instrument_approaches: 1
-  num_landings_day: 1
-  num_landings_night: 1
-  total_duration: 1
-  remarks: MyText
+  airplane_sel: 1.5
+  airplane_mel: 1.5
+  dual_received: 1.5
+  pic_hours: 1.5
+  day_hours: 1.5
+  night_hours: 1.5
+  cross_country_hours: 1.5
+  actual_instrument: 1.5
+  simulated_instrument: 1.5
+  ground_trainer: 1.5
+  num_instrument_approaches: 1.5
+  num_landings_day: 1.5
+  num_landings_night: 1.5
+  solo_hours: 1.5
+  total_duration: 1.5
+  maneuvers: MyText
+  comments: MyText

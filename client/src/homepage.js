@@ -10,8 +10,10 @@ class Homepage extends React.Component {
   state = { flights: [], viewFlight: false }
 
   componentDidMount() {
-    axios.get("/api/flights") 
+    axios.get("/api/flights", {user_id: this.props.user.id})
       .then(res => {
+        const {headers} = res;
+        this.props.dispatch({ type: 'SET_HEADERS', headers });
         this.setState({ flights: res.data });
       })
       .catch( err => {
@@ -102,4 +104,8 @@ class Homepage extends React.Component {
   }
 }
 
-export default connect()(Homepage);
+const mapStateToProps = (state) => {
+  return { user: state.user }
+}
+
+export default connect(mapStateToProps)(Homepage);

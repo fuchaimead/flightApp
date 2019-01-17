@@ -4,6 +4,13 @@ import { Grid, Header, Table } from "semantic-ui-react";
 class FlightDetails extends React.Component {
   calculateHours(key) {
     if(this.props.flights) {
+      if(this.props.flights.length === 1) {
+        let hours = this.props.flights[0][key];
+        if(hours === null) {
+          return(0);
+        }
+        return(hours);
+      }
       let hours = this.props.flights.map(flight => flight[key]).reduce((prev, next) => prev + next);
       return(hours.toFixed(1))
     } else {

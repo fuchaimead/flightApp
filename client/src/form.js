@@ -61,10 +61,13 @@ class FlightForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    const data = this.state.flight
+    const data = {...this.state.flight, user_id: this.props.user.id}
+    console.log(data);
     if(data.id) {
       Axios.put(`/api/flights/${data.id}`, data)
       .then(res => {
+        const {headers} = res;
+        this.props.dispatch({ type: 'SET_HEADERS', headers })
         this.props.history.push("/")
       })
       .catch( err => {
@@ -253,4 +256,8 @@ class FlightForm extends React.Component {
   }
 }
 
-export default connect()(FlightForm);
+const mapStateToProps = (state) => {
+  return { user: state.user }
+}
+
+export default connect(mapStateToProps)(FlightForm);
