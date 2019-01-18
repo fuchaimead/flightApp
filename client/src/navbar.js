@@ -1,57 +1,48 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import Style from './navbar.style'
+import { Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { handleLogout } from './actions/auth'
+import { css } from "emotion"
 import { withRouter, Link } from 'react-router-dom'
 
 class NavBar extends Component {
-  rightNavItems = () => {
-    const { dispatch, user, location } = this.props;
-    if(user.id) {
+  state = {isNavOpen: false};
+  renderNav() {
+    const { dispatch } = this.props;
+    if(this.state.isNavOpen) {
       return(
-        <Menu.Menu position='right'>
-          <Menu.Item
-            name='logout'
-            onClick={() => dispatch(handleLogout(this.props.history))}
-          />
-        </Menu.Menu>
-      )
-    } else {
-      return(
-        <Menu.Menu position='right'>
-          <Link to='/login'>
-            <Menu.Item
-              id='login'
-              name='login'
-              active={location.pathname === '/login'}
-            />
-          </Link>
-          <Link to='/register'>
-            <Menu.Item
-              id='register'
-              name='register'
-              active={location.pathname === '/register'}
-            />
-          </Link>
-        </Menu.Menu>
-      )
+        <div className="nav-menu">
+          <ul>
+            <li>
+            <Link to='/'>
+              View Flights
+              </Link>
+            </li>
+            <li>
+              My Account
+            </li>
+            <li onClick={() => dispatch(handleLogout(this.props.history))}>
+              Logout
+            </li>
+          </ul>
+        </div>
+      );
     }
   }
 
   render() {
+    let icon = this.state.isNavOpen ? "times" : "sidebar";
+    if(this.props.user.id === undefined) { return(null); }
+
     return (
-      <div>
-        <Menu pointing secondary>
-          <Link to='/'>
-            <Menu.Item
-              name='home'
-              id='home'
-              active={this.props.location.pathname === '/'}
-          />
-        </Link>
-          { this.rightNavItems() }
-        </Menu>
-      </div>
+      <Style className="navbar">
+        <Icon link name={icon} size="big" onClick={() => this.setState({isNavOpen: !this.state.isNavOpen})}/>
+        {this.renderNav()}
+        <div className={css`float: left;`}>
+          <Icon name="paper plane" link size="big"/>
+        </div>
+      </Style>
     )
   }
 }

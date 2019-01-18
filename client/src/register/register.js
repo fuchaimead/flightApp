@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Button, Grid, Form, Segment, Header, Icon } from 'semantic-ui-react'
 import { handleRegister} from '../actions/auth'
 import { connect } from 'react-redux'
+import { css } from 'emotion'
+import { Link } from "react-router-dom";
 import Style from "./register.style";
 
 class Register extends Component {
@@ -31,7 +33,7 @@ class Register extends Component {
           <Form onSubmit={this.handleSubmit}>
             <Grid container>
             <Icon name='paper plane' size='huge' />
-            <Header as='h1' textAlign='center'>Sign up for Flight Log</Header>
+            <Header as='h1' textAlign='center'>Sign up for Time Flies</Header>
               <Grid.Row columns={2}>
                 <Grid.Column>
                     <Form.Field>
@@ -91,7 +93,9 @@ class Register extends Component {
                     <Segment textAlign='center' basic>
                       <Button primary type='submit'>Sign Up</Button>
                     </Segment>
-                    <p>Already have an account? Sign In</p>
+                    <div className={css`text-align: center; background: white;`}>
+                  <strong>Already have an account? <Link to="/login">Sign In</Link></strong>
+                </div>
                 </Grid.Column>
               </Grid.Row>
             </Grid>

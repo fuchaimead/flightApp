@@ -2,6 +2,7 @@
 import Styled from "react-emotion";
 
 const Style = Styled('div')`
+  padding-top: 30px;
  .sub-header {
     color: #097b76 !important;
     margin-bottom: 5px !important;

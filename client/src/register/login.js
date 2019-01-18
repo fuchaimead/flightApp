@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Style from "./register.style";
-import { Button, Grid, Form, Icon, Segment, Header } from 'semantic-ui-react';
+import { Button, Grid, Form, Segment, Header } from 'semantic-ui-react';
 import { handleLogin } from '../actions/auth';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
+import { css } from "emotion";
 
 class Login extends Component {
   state = { email: '', password: '' }
@@ -27,7 +29,7 @@ class Login extends Component {
       <Segment basic>
         <Form onSubmit={this.handleSubmit}>
           <Grid container>
-          <Header as='h1' textAlign='center'>Login</Header>
+          <Header as='h1' textAlign='center'>Login to Time Flies</Header>
             <Grid.Row>
               <Grid.Column>
                   <Form.Field>
@@ -52,7 +54,9 @@ class Login extends Component {
                   <Segment textAlign='center' basic>
                     <Button primary type='submit'>Sign In</Button>
                   </Segment>
-                <p>Don't have an account? Register</p>
+                <div className={css`text-align: center; background: white;`}>
+                  <strong>Don't have an account? <Link to="/register">Register Here</Link></strong>
+                </div>
               </Grid.Column>
             </Grid.Row>
           </Grid>

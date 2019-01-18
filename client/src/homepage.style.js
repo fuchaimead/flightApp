@@ -2,13 +2,15 @@
 import Styled from "react-emotion";
 
 const Style = Styled('div')`
- p {
-   margin: 0;
- }
+  padding-top: 30px;
 
- a:hover {
-   cursor: pointer;
- }
+  p {
+    margin: 0;
+  }
+
+  a:hover {
+    cursor: pointer;
+  }
 `
 
 export default Style;
