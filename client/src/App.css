@@ -8,6 +8,10 @@
   padding-right: 20px;
 }
 
+.background {
+  height: 100%;
+}
+
 a {
   display: inherit;
 }

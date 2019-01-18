@@ -46,7 +46,6 @@ class ViewFlight extends React.Component {
   render () {
     const { comments, date, id, identification, model, total_duration } = this.props.flight;
     const formattedDate = Moment(date).format("MM/DD/YYYY");
-    console.log(this.props.flight)
     if(this.props.flight === undefined) { return (null); }
 
     return(

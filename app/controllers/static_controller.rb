@@ -6,4 +6,3 @@ class StaticController < ApplicationController
     render file: Rails.root.join('public', 'index.html')
   end
 end
-end

@@ -1,18 +1,18 @@
 import FetchUser from "./fetchUser";
 import Form from "./form";
 import Homepage from "./homepage";
-import Login from "./login";
+import Login from "./register/login";
 import NavBar from "./navbar";
 import NoMatch from "./noMatch";
 import ProtectedRoute from "./protectedRoute";
-import Register from "./register";
+import Register from "./register/register";
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="background">
         <NavBar/>
         <FetchUser>
           <Switch>
