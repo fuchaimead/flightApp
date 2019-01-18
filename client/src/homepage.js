@@ -77,12 +77,14 @@ class Homepage extends React.Component {
   }
 
   render() {
+    const{first_name, last_name} = this.props.user;
     if(this.state.flights === null) { return(null); }
 
     return (
       <Style>
         <Container>
-          <Header as="h1" textAlign="center">(User name) Flight Log</Header>
+          <Header as="h1" textAlign="center">Welcome {first_name} {last_name}</Header>
+          <Header as="h2" textAlign="center">Flight Log</Header>
           <FlightTotals flights={this.state.flights}/>
           <Grid>
             <Grid.Row>
