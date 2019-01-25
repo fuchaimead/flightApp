@@ -1,4 +1,5 @@
 import FetchUser from "./fetchUser";
+import Flash from "./flash";
 import Form from "./form";
 import Homepage from "./homepage";
 import Login from "./register/login";
@@ -13,8 +14,9 @@ class App extends Component {
   render() {
     return (
       <div className="background">
-        <NavBar/>
         <FetchUser>
+        <NavBar/>
+        <Flash/>
           <Switch>
             <ProtectedRoute exact path="/" component={Homepage} />
             <Route exact path="/login" component={Login} />

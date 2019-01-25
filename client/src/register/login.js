@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Style from "./register.style";
+import Style from './register.style';
 import { Button, Grid, Form, Segment, Header } from 'semantic-ui-react';
 import { handleLogin } from '../actions/auth';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { css } from "emotion";
+import { css } from 'emotion';
 
 class Login extends Component {
   state = { email: '', password: '' }
@@ -29,7 +29,7 @@ class Login extends Component {
       <Segment basic>
         <Form onSubmit={this.handleSubmit}>
           <Grid container>
-          <Header as='h1' textAlign='center'>Login to Time Flies</Header>
+          <Header as='h1' textAlign='center'>Login to TimeFlies</Header>
             <Grid.Row>
               <Grid.Column>
                   <Form.Field>

@@ -1,14 +1,17 @@
 import axios from 'axios';
+import { setFlash } from './flash';
 
 export const handleRegister = (first_name, last_name, email, password, passwordConfirmation, history) => {
   return(dispatch) => {
     axios.post('/api/auth', { first_name, last_name, email, password, password_confirmation: passwordConfirmation })
       .then( res => {
         dispatch({ type: 'LOGIN', user: res.data.data, headers: res.headers});
+        dispatch(setFlash('Successfully registered', 'green'));
         history.push('/');
       })
-      .catch( res => {
-        console.log(res);
+      .catch( error => {
+        console.error(error.response);
+        dispatch(setFlash(error.response.data.errors.full_messages, 'red', 3000));
     });
   }
 }

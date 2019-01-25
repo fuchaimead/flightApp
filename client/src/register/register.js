@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { Button, Grid, Form, Segment, Header, Icon } from 'semantic-ui-react'
-import { handleRegister} from '../actions/auth'
-import { connect } from 'react-redux'
-import { css } from 'emotion'
-import { Link } from "react-router-dom";
-import Style from "./register.style";
+import React, { Component } from 'react';
+import { Button, Grid, Form, Segment, Header, Icon } from 'semantic-ui-react';
+import { handleRegister} from '../actions/auth';
+import { connect } from 'react-redux';
+import { css } from 'emotion';
+import { Link } from 'react-router-dom';
+import Style from './register.style';
 
 class Register extends Component {
   state = { first_name: '', last_name: '', email: '', password: '', passwordConfirmation: '' }
@@ -33,7 +33,7 @@ class Register extends Component {
           <Form onSubmit={this.handleSubmit}>
             <Grid container>
             <Icon name='paper plane' size='huge' />
-            <Header as='h1' textAlign='center'>Sign up for Time Flies</Header>
+            <Header as='h1' textAlign='center'>Sign up for TimeFlies</Header>
               <Grid.Row columns={2}>
                 <Grid.Column>
                     <Form.Field>
